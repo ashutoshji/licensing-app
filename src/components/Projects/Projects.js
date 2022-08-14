@@ -9,7 +9,6 @@ function Projects() {
   const showMoreContent = (event, id) => {
     event.stopPropagation();
     if(event.target == event.currentTarget && id){
-        event.stopPropagation()
         setExactChild(true); 
         setLoadMoreContent(true);
     }
