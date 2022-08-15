@@ -8,7 +8,7 @@ function Projects() {
   const [exactChild, setExactChild] = useState(false);
   const showMoreContent = (event, id) => {
     event.stopPropagation();
-    if(event.target == event.currentTarget && id){
+    if(event.target == event.currentTarget && id === parseInt(event.currentTarget.id)) {
         setExactChild(true); 
         setLoadMoreContent(true);
     }
@@ -19,9 +19,8 @@ function Projects() {
       <Container>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
           {PROJECTS.map((project, index) => (
-            <Col md={4} className="project-card">
+            <Col md={4} className="project-card" key={index}>
               <ProjectCard
-                key={index}
                 imgPath={project.image}
                 technologyUsed={project.technologyUsed}
                 title={project.name}
